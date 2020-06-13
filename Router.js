@@ -217,7 +217,6 @@ class Router {
 			let postid=req.body.postid;
 			let ownerid=req.body.ownerid;
 			let query=`delete from post where id=${postid} and user_id=${ownerid}`;
-			console.log(query);
 			db.query(query,(err,data,fields)=>{
 				if (err){
 					res.json({
