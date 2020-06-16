@@ -175,7 +175,7 @@ class Router {
 	}
 	forumLoad(app,db){
 		app.post("/forum/load",(req,res)=>{
-			let query="select p.id,p.body,p.user_id,u.username from post p inner join user u on p.user_id=u.id";
+			let query="select p.id,p.body,p.user_id,u.username from post p inner join user u on p.user_id=u.id group by p.id,p.body,p.user_id,u.username  order by p.id";
 			db.query(query,(err,data,fields)=>{
 				if(err){
 					res.json({
